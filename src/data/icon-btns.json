@@ -1,0 +1,26 @@
+{
+  "closeBadge": {
+    "function": "Decline Team Member",
+    "label": "Close"
+  },
+
+  "closeAll": {
+    "function": "Decline All Team Members",
+    "label": "Close"
+  },
+
+  "closeModal": {
+    "function": "Close This Window",
+    "label": "Close"
+  },
+
+  "fold": {
+    "function": "Close Available Players",
+    "label": "Arrow Up"
+  },
+
+  "unfold": {
+    "function": "See Available Players",
+    "label": "Arrow Down"
+  }
+}

@@ -1,11 +1,17 @@
-import { Title } from "./components";
+import { Title, IconBtn } from "./components";
+import titles from "./data/titles.json";
 
 function App() {
   return (
     <section className="container">
-      <Title text="Team Pokemon!" variant="h1" className="text-center" />
-      <Title text="Gather Your Team" />
-      <Title text="Team Pokemon Ready!" />
+      <Title text={titles.main} variant="h1" className="text-center" />
+      <Title text={titles.form} />
+      <Title text={titles.modal} />
+      <IconBtn variant="close-badge" clickHandler={() => {}} />
+      <IconBtn variant="close-all" clickHandler={() => {}} />
+      <IconBtn variant="close-modal" clickHandler={() => {}} />
+      <IconBtn variant="fold" clickHandler={() => {}} />
+      <IconBtn variant="unfold" clickHandler={() => {}} />
     </section>
   );
 }

@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Title from "./Title";
-// import ITitleProps from "./Title.props";
 
 const meta = {
   title: "components/lowerLevel/Title",
