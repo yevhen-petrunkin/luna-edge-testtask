@@ -1,7 +1,30 @@
-import { Title, IconBtn, Button, Badge, ButtonBase } from "./components";
+import { useEffect, useState } from "react";
+
+import { fetchAllPokemons } from "./utils/api";
+import { sortOptionsAlphabetically } from "./utils/helpers";
+
 import titles from "./data/titles.json";
 
+import {
+  Title,
+  IconBtn,
+  Button,
+  Badge,
+  ButtonBase,
+  OptionsBox,
+} from "./components";
+
+import { Options } from "./types";
+
 function App() {
+  const [pokemons, setPokemons] = useState([]);
+
+  useEffect(() => {
+    fetchAllPokemons().then((rawOptions: Options) => {
+      setPokemons(sortOptionsAlphabetically(rawOptions) as any);
+    });
+  }, []);
+
   return (
     <section className="container">
       <Title text={titles.main} variant="h1" className="text-center" />
@@ -40,6 +63,12 @@ function App() {
       <Badge text="bulbasaur" clickHandler={() => {}} />
 
       <ButtonBase clickHandler={() => {}} />
+
+      <OptionsBox
+        options={pokemons}
+        visibility={true}
+        clickHandler={() => {}}
+      />
     </section>
   );
 }

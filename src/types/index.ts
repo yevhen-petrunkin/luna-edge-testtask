@@ -10,3 +10,7 @@ export type IconData = {
   use: string;
   label: string;
 };
+
+export type Option = { name: string; url: string };
+
+export type Options = Option[];
