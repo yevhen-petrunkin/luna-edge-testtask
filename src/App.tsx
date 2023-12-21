@@ -1,4 +1,4 @@
-import { Title, IconBtn } from "./components";
+import { Title, IconBtn, Badge } from "./components";
 import titles from "./data/titles.json";
 
 function App() {
@@ -12,6 +12,8 @@ function App() {
       <IconBtn variant="close-modal" clickHandler={() => {}} />
       <IconBtn variant="fold" clickHandler={() => {}} />
       <IconBtn variant="unfold" clickHandler={() => {}} />
+
+      <Badge text="bulbasaur" clickHandler={() => {}} />
     </section>
   );
 }

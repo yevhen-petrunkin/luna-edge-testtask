@@ -5,4 +5,6 @@ export { default as IconBtn } from "./lowerLevel/IconBtn/IconBtn";
 
 // MID LEVEL
 
+export { default as Badge } from "./midLevel/Badge/Badge";
+
 // HIGHER LEVEL

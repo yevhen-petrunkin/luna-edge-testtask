@@ -17,7 +17,8 @@ const IconBtn: React.FC<IIconBtnProps> = ({
       className={cn(
         "flex items-center justify-center hover:text-primary-dark focus:text-primary-dark transition-colors",
         {
-          "w-4 h-4": variant !== "close-modal",
+          "w-4 h-4": variant !== "close-badge" && variant !== "close-modal",
+          "w-3.5 h-3.5 text-primary-mid": variant === "close-badge",
           "w-8 h-8": variant === "close-modal",
         },
         className
@@ -28,9 +29,8 @@ const IconBtn: React.FC<IIconBtnProps> = ({
     >
       <Icon
         className={cn("text-current", {
-          "w-full h-full":
-            variant !== "close-badge" && variant !== "close-modal",
-          "w-3 h-3": variant === "close-badge",
+          "w-full h-full": variant !== "close-modal",
+
           "w-7 h-7": variant === "close-modal",
         })}
         aria-label={label}
