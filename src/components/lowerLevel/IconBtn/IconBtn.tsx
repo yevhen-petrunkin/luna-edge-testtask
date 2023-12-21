@@ -15,7 +15,7 @@ const IconBtn: React.FC<IIconBtnProps> = ({
   return (
     <button
       className={cn(
-        "flex items-center justify-center hover:text-primary-dark focus:text-primary-dark transition-colors",
+        "flex items-center justify-center outline-none hover:text-primary-dark focus:text-primary-dark transition-colors",
         {
           "w-4 h-4": variant !== "close-badge" && variant !== "close-modal",
           "w-3.5 h-3.5 text-primary-mid": variant === "close-badge",

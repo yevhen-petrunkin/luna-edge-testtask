@@ -51,7 +51,7 @@ export default {
 
         accent: {
           DEFAULT: "#4724C7",
-          dark: "#5D40CD",
+          dark: "#4724C7",
           darker: "#6466F1",
           mid: "#6466F1",
           lighter: "#C6D2FE",
