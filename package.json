@@ -21,7 +21,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.49.2",
-    "react-hook-form-persist": "^3.0.0"
+    "react-hook-form-persist": "^3.0.0",
+    "react-hot-toast": "^2.4.1"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "7.6.6",

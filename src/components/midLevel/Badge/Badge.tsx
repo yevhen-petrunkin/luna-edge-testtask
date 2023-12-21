@@ -1,6 +1,6 @@
 import cn from "classnames";
 
-import { IconBtn } from "../../../components";
+import { IconBtn } from "../..";
 
 import IBadgeProps from "./Badge.props";
 

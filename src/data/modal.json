@@ -1,0 +1,6 @@
+{
+  "buttons": {
+    "cancel": { "text": "Cancel", "message": "Team Pokemon Cancelled" },
+    "save": { "text": "Save", "message": "Team Pokemon Saved" }
+  }
+}

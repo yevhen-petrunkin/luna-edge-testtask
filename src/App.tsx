@@ -1,4 +1,4 @@
-import { Title, IconBtn, Button, Badge } from "./components";
+import { Title, IconBtn, Button, Badge, ButtonBase } from "./components";
 import titles from "./data/titles.json";
 
 function App() {
@@ -38,6 +38,8 @@ function App() {
       <Button text="Cancel" variant="text" clickHandler={() => {}} disabled />
 
       <Badge text="bulbasaur" clickHandler={() => {}} />
+
+      <ButtonBase clickHandler={() => {}} />
     </section>
   );
 }
