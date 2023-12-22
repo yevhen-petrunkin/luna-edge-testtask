@@ -1,7 +1,7 @@
-import { IconBtnVariant } from "../../../types";
+import { IconBtnVariantT } from "../../../types";
 
 interface IIconBtnProps {
-  variant: IconBtnVariant;
+  variant: IconBtnVariantT;
   clickHandler: () => void;
   className?: string | undefined;
 }

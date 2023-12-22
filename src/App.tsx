@@ -1,9 +1,12 @@
+import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
+
 import { useEffect, useState } from "react";
 
 import { fetchAllPokemons } from "./utils/api";
 import { sortOptionsAlphabetically } from "./utils/helpers";
 
 import titles from "./data/titles.json";
+import form from "./data/form.json";
 
 import {
   Title,
@@ -12,18 +15,29 @@ import {
   Badge,
   ButtonBase,
   OptionsBox,
+  Input,
 } from "./components";
 
-import { Options } from "./types";
+import { OptionsT, InputT } from "./types";
 
 function App() {
   const [pokemons, setPokemons] = useState([]);
 
   useEffect(() => {
-    fetchAllPokemons().then((rawOptions: Options) => {
+    fetchAllPokemons().then((rawOptions: OptionsT) => {
       setPokemons(sortOptionsAlphabetically(rawOptions) as any);
     });
   }, []);
+
+  const data = JSON.parse(JSON.stringify(form));
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FieldValues>();
+
+  const onSubmit: SubmitHandler<FieldValues> = () => {};
 
   return (
     <section className="container">
@@ -66,9 +80,22 @@ function App() {
 
       <OptionsBox
         options={pokemons}
-        visibility={true}
+        visibility={false}
         clickHandler={() => {}}
       />
+
+      <form onSubmit={handleSubmit(onSubmit)} noValidate>
+        <ul>
+          {data.inputs.map((input: InputT) => {
+            return (
+              <li key={input.id}>
+                <Input input={input} register={register} errors={errors} />
+              </li>
+            );
+          })}
+        </ul>
+        <Button text={data.button.text} type="submit" size="lg" decorated />
+      </form>
     </section>
   );
 }

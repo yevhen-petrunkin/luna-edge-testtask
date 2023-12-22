@@ -1,9 +1,9 @@
-import { Options, Option } from "../../../types";
+import { OptionsT, OptionT } from "../../../types";
 
 interface IOptionsBoxProps {
-  options: Options;
+  options: OptionsT;
   visibility?: boolean | undefined;
-  clickHandler: (option: Option) => void;
+  clickHandler: (option: OptionT) => void;
   className?: string | undefined;
 }
 

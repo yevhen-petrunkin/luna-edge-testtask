@@ -5,7 +5,7 @@ interface IButtonProps {
   size?: "base" | "lg" | undefined;
   decorated?: boolean | undefined;
   disabled?: boolean | undefined;
-  clickHandler: () => void;
+  clickHandler?: () => void;
   className?: string | undefined;
 }
 

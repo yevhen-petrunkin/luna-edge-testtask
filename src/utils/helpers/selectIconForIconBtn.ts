@@ -6,9 +6,9 @@ import {
 
 import data from "../../data/icon-btns.json";
 
-import { IconBtnVariant, IconData } from "../../types";
+import { IconBtnVariantT, IconDataT } from "../../types";
 
-function selectIconForIconBtn(variant: IconBtnVariant): IconData {
+function selectIconForIconBtn(variant: IconBtnVariantT): IconDataT {
   let ref = null;
   let use = "Button";
   let label = "Icon";

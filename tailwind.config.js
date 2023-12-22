@@ -32,7 +32,7 @@ export default {
         primary: {
           DEFAULT: "#18171D",
           dark: "#444347",
-          darker: "#9492A0",
+          darker: "#605F6E",
           mid: "#A09FAC",
           lighter: "#D7D6DD",
           light: "#DDDCE0",

@@ -1,0 +1,51 @@
+{
+  "title": "Team Pokemon",
+  "inputs": [
+    {
+      "id": "01",
+      "label": "Name",
+      "placeholder": "John",
+      "name": "userName",
+      "assistiveText": "Enter your name, please",
+      "options": {
+        "required": "This information is required.",
+        "pattern": {
+          "value": "^[a-zA-Z]+$",
+          "message": "Please type a valid name."
+        },
+        "minLength": {
+          "value": 2,
+          "message": "Please type at least 2 characters."
+        },
+        "maxLength": {
+          "value": 12,
+          "message": "Please type no more than 12 characters."
+        }
+      }
+    },
+    {
+      "id": "02",
+      "label": "Surname",
+      "placeholder": "Johnson",
+      "name": "userSurname",
+      "assistiveText": "Enter your surname, please",
+      "options": {
+        "required": "This information is required.",
+        "pattern": {
+          "value": "^[a-zA-Z]+$",
+          "message": "Please type a valid surname."
+        },
+        "minLength": {
+          "value": 2,
+          "message": "Please type at least 2 characters."
+        },
+        "maxLength": {
+          "value": 12,
+          "message": "Please type no more than 12 characters."
+        }
+      }
+    }
+  ],
+
+  "button": { "text": "Summon Your Team" }
+}

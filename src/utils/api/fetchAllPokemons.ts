@@ -1,7 +1,7 @@
 import axios from "axios";
-import { Options } from "../../types";
+import { OptionsT } from "../../types";
 
-async function fetchAllPokemons(): Promise<Options> {
+async function fetchAllPokemons(): Promise<OptionsT> {
   try {
     const res = await axios.get(
       import.meta.env.VITE_BASE_URL + import.meta.env.VITE_MAIN_PARAMETER,
