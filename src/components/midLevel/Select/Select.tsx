@@ -18,6 +18,7 @@ const Select: React.FC<ISelectProps> = ({
   options,
   changeHandler,
   className,
+  isModalOpen = false,
 }) => {
   const [pokemons, setPokemons] = useState<OptionsT>(options);
   const [players, setPlayers] = useState<OptionsT>([]);
@@ -139,6 +140,14 @@ const Select: React.FC<ISelectProps> = ({
 
     setVisibility(true);
   };
+
+  // Reset select component if the form was submitted, which is ended with open modal
+
+  useEffect(() => {
+    if (isModalOpen) {
+      removeAllPlayers();
+    }
+  }, [isModalOpen, removeAllPlayers]);
 
   return (
     <div className={cn("flex flex-col gap-2", className)}>

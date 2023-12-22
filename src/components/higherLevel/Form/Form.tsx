@@ -2,7 +2,7 @@ import cn from "classnames";
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import useFormPersist from "react-hook-form-persist";
 
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useCallback } from "react";
 
 import { fetchPokemonByName } from "../../../utils/api";
 import { normalizeTeamMemberFromData } from "../../../utils/helpers";
@@ -10,7 +10,7 @@ import { normalizeTeamMemberFromData } from "../../../utils/helpers";
 import titles from "../../../data/titles.json";
 import form from "../../../data/form.json";
 
-import { Title, Button, Input, Select } from "../..";
+import { Title, Button, Input, Select, Modal } from "../..";
 
 import { InputT, OptionsT, TeamMemberDataT } from "../../../types";
 import IFormProps from "./Form.props";
@@ -22,10 +22,15 @@ const Form: React.FC<IFormProps> = ({ options, className }) => {
   const [teamMembers, setTeamMembers] = useState<OptionsT>([]);
   const [participants, setParticipants] = useState<TeamMemberDataT[]>([]);
   const [userData, setUserData] = useState<FieldValues>();
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const handleSelectChange = (players: OptionsT) => {
     setTeamMembers(players);
   };
+
+  const openModal = useCallback(() => setIsModalOpen(true), [setIsModalOpen]);
+
+  const closeModal = useCallback(() => setIsModalOpen(false), [setIsModalOpen]);
 
   const {
     register,
@@ -62,7 +67,8 @@ const Form: React.FC<IFormProps> = ({ options, className }) => {
               ]);
             }
           })
-          .catch((err) => console.log(err));
+          .catch((err) => console.log(err))
+          .finally(() => setIsModalOpen(true));
       });
     } catch (error) {
       console.log(error);
@@ -94,6 +100,7 @@ const Form: React.FC<IFormProps> = ({ options, className }) => {
             options={options}
             changeHandler={handleSelectChange}
             className="mt-4"
+            isModalOpen={isModalOpen}
           />
         ) : (
           ""
@@ -106,6 +113,8 @@ const Form: React.FC<IFormProps> = ({ options, className }) => {
           className="mx-auto mt-4"
         />
       </form>
+
+      {isModalOpen ? <Modal clickHandler={closeModal}>Modal</Modal> : ""}
     </section>
   );
 };

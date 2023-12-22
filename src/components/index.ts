@@ -18,3 +18,4 @@ export { default as Select } from "./midLevel/Select/Select";
 // HIGHER LEVEL
 
 export { default as Form } from "./higherLevel/Form/Form";
+export { default as Modal } from "./higherLevel/Modal/Modal";
