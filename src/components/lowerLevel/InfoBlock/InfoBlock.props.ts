@@ -1,7 +1,9 @@
+import { FieldValues } from "react-hook-form";
 import { TeamMemberDataT } from "../../../types";
 
 interface IInfoBlockProps {
-  teamMember: TeamMemberDataT;
+  userData?: FieldValues | undefined;
+  teamMember?: TeamMemberDataT | undefined;
   className?: string | undefined;
 }
 

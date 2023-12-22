@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import InfoBlock from "./InfoBlock";
+
+import TeamBoard from "./TeamBoard";
 
 const teamMember = {
   id: 132,
@@ -13,26 +14,23 @@ const teamMember = {
 };
 
 const meta = {
-  title: "components/lowerLevel/InfoBlock",
-  component: InfoBlock,
+  title: "components/higherLevel/TeamBoard",
+  component: TeamBoard,
 
   tags: ["autodocs"],
-} satisfies Meta<typeof InfoBlock>;
+} satisfies Meta<typeof TeamBoard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const UserInfoBlock: Story = {
+export const DefaultTeamBoard: Story = {
   args: {
     userData: {
       userName: "User Name",
       userSurname: "User Surname",
     },
-  },
-};
+    participants: [teamMember],
 
-export const TeamMemberInfoBlock: Story = {
-  args: {
-    teamMember,
+    clickHandler: () => {},
   },
 };

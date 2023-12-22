@@ -1,5 +1,5 @@
 interface IButtonBaseProps {
-  clickHandler: () => void;
+  clickHandler: (needSave: boolean) => void;
   className?: string | undefined;
 }
 

@@ -19,3 +19,4 @@ export { default as Select } from "./midLevel/Select/Select";
 
 export { default as Form } from "./higherLevel/Form/Form";
 export { default as Modal } from "./higherLevel/Modal/Modal";
+export { default as TeamBoard } from "./higherLevel/TeamBoard/TeamBoard";

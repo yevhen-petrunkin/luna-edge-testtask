@@ -147,7 +147,7 @@ const Select: React.FC<ISelectProps> = ({
     if (isModalOpen) {
       removeAllPlayers();
     }
-  }, [isModalOpen, removeAllPlayers]);
+  }, [isModalOpen]);
 
   return (
     <div className={cn("flex flex-col gap-2", className)}>

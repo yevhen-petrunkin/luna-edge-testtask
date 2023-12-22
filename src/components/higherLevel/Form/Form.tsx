@@ -1,6 +1,7 @@
 import cn from "classnames";
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import useFormPersist from "react-hook-form-persist";
+import toast, { Toaster } from "react-hot-toast";
 
 import { useEffect, useState, useMemo, useCallback } from "react";
 
@@ -9,8 +10,9 @@ import { normalizeTeamMemberFromData } from "../../../utils/helpers";
 
 import titles from "../../../data/titles.json";
 import form from "../../../data/form.json";
+import modal from "../../../data/modal.json";
 
-import { Title, Button, Input, Select, Modal } from "../..";
+import { Title, Button, Input, Select, Modal, TeamBoard } from "../..";
 
 import { InputT, OptionsT, TeamMemberDataT } from "../../../types";
 import IFormProps from "./Form.props";
@@ -18,6 +20,7 @@ import IFormProps from "./Form.props";
 const Form: React.FC<IFormProps> = ({ options, className }) => {
   const data = useMemo(() => JSON.parse(JSON.stringify(form)), []);
   const FORM_DATA_KEY = "pokemon_session_data";
+  const { cancel, save } = modal.buttons;
 
   const [teamMembers, setTeamMembers] = useState<OptionsT>([]);
   const [participants, setParticipants] = useState<TeamMemberDataT[]>([]);
@@ -28,9 +31,22 @@ const Form: React.FC<IFormProps> = ({ options, className }) => {
     setTeamMembers(players);
   };
 
-  const openModal = useCallback(() => setIsModalOpen(true), [setIsModalOpen]);
-
   const closeModal = useCallback(() => setIsModalOpen(false), [setIsModalOpen]);
+
+  const resolveCurrentSession = useCallback(
+    (needSave: boolean) => {
+      const notify = () => {
+        needSave ? toast.success(save.message) : toast.error(cancel.message);
+      };
+
+      notify();
+      setIsModalOpen(false);
+      setTeamMembers([]);
+      setParticipants([]);
+      setUserData(undefined);
+    },
+    [toast, setIsModalOpen]
+  );
 
   const {
     register,
@@ -55,21 +71,26 @@ const Form: React.FC<IFormProps> = ({ options, className }) => {
     setUserData(formData);
 
     try {
-      teamMembers.forEach((member) => {
-        fetchPokemonByName(member.name)
-          .then((memberData) => {
-            if (memberData) {
-              setParticipants((prev) => [
-                ...prev,
-                normalizeTeamMemberFromData(
-                  memberData as any
-                ) as TeamMemberDataT,
-              ]);
-            }
-          })
-          .catch((err) => console.log(err))
-          .finally(() => setIsModalOpen(true));
-      });
+      if (teamMembers && teamMembers.length) {
+        teamMembers.forEach((member) => {
+          fetchPokemonByName(member.name)
+            .then((memberData) => {
+              if (memberData) {
+                setParticipants((prev) => [
+                  ...prev,
+                  normalizeTeamMemberFromData(
+                    memberData as any
+                  ) as TeamMemberDataT,
+                ]);
+              }
+            })
+            .catch((err) => console.log(err))
+            .finally(() => setIsModalOpen(true));
+        });
+        return;
+      }
+
+      setIsModalOpen(true);
     } catch (error) {
       console.log(error);
     }
@@ -113,8 +134,19 @@ const Form: React.FC<IFormProps> = ({ options, className }) => {
           className="mx-auto mt-4"
         />
       </form>
+      <Toaster position="bottom-center" />
 
-      {isModalOpen ? <Modal clickHandler={closeModal}>Modal</Modal> : ""}
+      {isModalOpen ? (
+        <Modal clickHandler={closeModal}>
+          <TeamBoard
+            userData={userData}
+            participants={participants}
+            clickHandler={resolveCurrentSession}
+          />
+        </Modal>
+      ) : (
+        ""
+      )}
     </section>
   );
 };

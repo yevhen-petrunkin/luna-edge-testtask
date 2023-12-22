@@ -21,7 +21,7 @@ const Title: React.FC<ITitleProps> = ({ text, variant = "h2", className }) => {
       {variant === "h2" ? (
         <h2
           className={cn(
-            "text-xl base:text-2xl lg:text-3xl xl:text-4xl font-medium ",
+            "text-lg base:text-xl lg:text-2xl xl:text-3xl font-medium",
             className
           )}
         >

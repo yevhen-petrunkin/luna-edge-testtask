@@ -1,5 +1,4 @@
 import axios from "axios";
-import { OptionsT } from "../../types";
 
 async function fetchPokemonByName(name: string): Promise<any> {
   try {
