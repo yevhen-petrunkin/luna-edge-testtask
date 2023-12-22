@@ -5,7 +5,7 @@ import { sortOptionsAlphabetically } from "./utils/helpers";
 
 import titles from "./data/titles.json";
 
-import { Title, IconBtn, ButtonBase, Form } from "./components";
+import { Title, IconBtn, ButtonBase, Form, InfoBlock } from "./components";
 
 import { OptionsT } from "./types";
 
@@ -19,7 +19,7 @@ function App() {
   }, []);
 
   return (
-    <section className="container pb-[50vh]">
+    <section className="container py-10">
       <Title text={titles.main} variant="h1" className="text-center" />
 
       <Form options={pokemons} />
@@ -27,6 +27,18 @@ function App() {
       <Title text={titles.modal} />
       <IconBtn variant="close-modal" clickHandler={() => {}} />
       <ButtonBase clickHandler={() => {}} />
+      <InfoBlock
+        teamMember={{
+          id: 132,
+          name: "ditto",
+          imageUrl:
+            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png",
+          experience: 101,
+          height: 3,
+          weight: 40,
+          abilities: ["limber", "imposter"],
+        }}
+      />
     </section>
   );
 }

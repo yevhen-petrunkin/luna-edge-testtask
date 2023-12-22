@@ -1,7 +1,7 @@
 import { TeamMemberDataT } from "../../../types";
 
 interface IInfoBlockProps {
-  teamMembers: TeamMemberDataT[];
+  teamMember: TeamMemberDataT;
   className?: string | undefined;
 }
 

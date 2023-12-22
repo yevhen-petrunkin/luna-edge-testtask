@@ -5,13 +5,14 @@ import useFormPersist from "react-hook-form-persist";
 import { useEffect, useState, useMemo } from "react";
 
 import { fetchPokemonByName } from "../../../utils/api";
+import { normalizeTeamMemberFromData } from "../../../utils/helpers";
 
 import titles from "../../../data/titles.json";
 import form from "../../../data/form.json";
 
 import { Title, Button, Input, Select } from "../..";
 
-import { InputT, OptionsT } from "../../../types";
+import { InputT, OptionsT, TeamMemberDataT } from "../../../types";
 import IFormProps from "./Form.props";
 
 const Form: React.FC<IFormProps> = ({ options, className }) => {
@@ -19,7 +20,7 @@ const Form: React.FC<IFormProps> = ({ options, className }) => {
   const FORM_DATA_KEY = "pokemon_session_data";
 
   const [teamMembers, setTeamMembers] = useState<OptionsT>([]);
-  const [participants, setParticipants] = useState<any[]>([]);
+  const [participants, setParticipants] = useState<TeamMemberDataT[]>([]);
   const [userData, setUserData] = useState<FieldValues>();
 
   const handleSelectChange = (players: OptionsT) => {
@@ -53,7 +54,12 @@ const Form: React.FC<IFormProps> = ({ options, className }) => {
         fetchPokemonByName(member.name)
           .then((memberData) => {
             if (memberData) {
-              setParticipants((prev) => [...prev, memberData]);
+              setParticipants((prev) => [
+                ...prev,
+                normalizeTeamMemberFromData(
+                  memberData as any
+                ) as TeamMemberDataT,
+              ]);
             }
           })
           .catch((err) => console.log(err));

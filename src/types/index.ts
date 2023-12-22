@@ -50,7 +50,7 @@ export type TeamMemberDataT = {
   id: number;
   name: string;
   imageUrl?: string;
-  expersience: number;
+  experience: number;
   height: number;
   weight: number;
   abilities: string[];
