@@ -23,9 +23,6 @@ function checkOptionsForPlayers(
     }
   });
 
-  console.log(options.length);
-  console.log(filteredPlayers.length);
-
   return filteredPlayers;
 }
 

@@ -47,5 +47,14 @@
     }
   ],
 
+  "select": {
+    "id": "select",
+    "label": "Team Members",
+    "message": "Select your team members please.",
+    "fullTeamMessage": "The team is full.",
+    "error": { "message": "There no such players available." },
+    "maximumMembers": 4
+  },
+
   "button": { "text": "Summon Your Team" }
 }

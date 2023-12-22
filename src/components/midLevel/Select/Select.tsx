@@ -19,7 +19,6 @@ const Select: React.FC<ISelectProps> = ({
   changeHandler,
   className,
 }) => {
-  const maximumPlayers = 4;
   const [pokemons, setPokemons] = useState<OptionsT>(options);
   const [players, setPlayers] = useState<OptionsT>([]);
   const [error, setError] = useState<InputErrorT | null>(null);
@@ -36,7 +35,7 @@ const Select: React.FC<ISelectProps> = ({
   // Disable and reset input when the number of players exceeds maximum limit
 
   useEffect(() => {
-    if (players.length >= maximumPlayers) {
+    if (players.length >= selectData.maximumMembers) {
       setValue("");
       setVisibility(false);
       setDisable(true);
@@ -56,8 +55,8 @@ const Select: React.FC<ISelectProps> = ({
       return;
     }
 
-    if (players.length >= maximumPlayers) {
-      setError({ message: "The team is full." });
+    if (players.length >= selectData.maximumMembers) {
+      setError({ message: selectData.fullTeamMessage });
       return;
     }
 
@@ -112,7 +111,7 @@ const Select: React.FC<ISelectProps> = ({
   const removePlayer = (playerName: string) => {
     const filteredPlayers = removePlayerByName(players, playerName);
 
-    if (filteredPlayers.length < maximumPlayers) {
+    if (filteredPlayers.length < selectData.maximumMembers) {
       setError(null);
     }
     setPlayers(filteredPlayers);
@@ -143,14 +142,20 @@ const Select: React.FC<ISelectProps> = ({
 
   return (
     <div className={cn("flex flex-col gap-2", className)}>
+      {/* LABEL */}
+
       <Label id={selectData.id} text={selectData.label} />
 
+      {/* INPUT BLOCK */}
+
       <div
-        className={`relative min-h-12 flex items-center justify-end gap-1 px-3 py-1 w-full border rounded ${
+        className={`relative min-h-12 flex items-center justify-end gap-1 px-3 py-1 w-full border rounded bg-secondary ${
           error ? "input-error" : "select-behavior"
         } `}
       >
         <div className="flex items-center flex-wrap w-full">
+          {/* BADGES */}
+
           {players &&
             players.map((player) => (
               <Badge
@@ -159,6 +164,8 @@ const Select: React.FC<ISelectProps> = ({
                 clickHandler={removePlayer}
               />
             ))}
+
+          {/* INPUT*/}
 
           {!disable && (
             <input
@@ -175,11 +182,15 @@ const Select: React.FC<ISelectProps> = ({
           )}
         </div>
 
+        {/* CLOSE-ALL BUTTON */}
+
         {players.length > 0 ? (
           <IconBtn variant="close-all" clickHandler={removeAllPlayers} />
         ) : (
           ""
         )}
+
+        {/* FOLD-UNFOLD BUTTONS */}
 
         {!disable &&
           (visibility ? (
@@ -188,6 +199,8 @@ const Select: React.FC<ISelectProps> = ({
             <IconBtn variant="unfold" clickHandler={unfoldOptions} />
           ))}
 
+        {/* OPTIONS BOX */}
+
         <OptionsBox
           options={pokemons}
           visibility={visibility}
@@ -195,6 +208,8 @@ const Select: React.FC<ISelectProps> = ({
           className="-bottom-[30.5vh] left-0"
         />
       </div>
+
+      {/* ASSISTIVE STRING */}
 
       <AssistiveString text={selectData.message} error={error} />
     </div>

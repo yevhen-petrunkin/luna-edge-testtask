@@ -36,5 +36,22 @@ export type SelectDataT = {
   id: string;
   label: string;
   message: string;
+  fullTeamMessage: string;
   error: InputErrorT;
+  maximumMembers: number;
+};
+
+export type UserDataT = {
+  userName: string;
+  userSurname: string;
+};
+
+export type TeamMemberDataT = {
+  id: number;
+  name: string;
+  imageUrl?: string;
+  expersience: number;
+  height: number;
+  weight: number;
+  abilities: string[];
 };

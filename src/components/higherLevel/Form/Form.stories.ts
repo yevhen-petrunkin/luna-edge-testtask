@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Select from "./Select";
+import Form from "./Form";
 
 const options = [
   {
@@ -26,26 +26,17 @@ const options = [
 ];
 
 const meta = {
-  title: "components/midLevel/Select",
-  component: Select,
+  title: "components/higherLevel/Form",
+  component: Form,
 
   tags: ["autodocs"],
-} satisfies Meta<typeof Select>;
+} satisfies Meta<typeof Form>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const DefaultSelect: Story = {
+export const DefaultForm: Story = {
   args: {
-    selectData: {
-      id: "select",
-      label: "Default Select",
-      message: "Assistive Text",
-      fullTeamMessage: "Message about full team",
-      error: { message: "Error message" },
-      maximumMembers: 4,
-    },
     options,
-    changeHandler: () => {},
   },
 };
