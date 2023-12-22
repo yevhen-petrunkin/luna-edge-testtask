@@ -6,7 +6,7 @@
       "label": "Name",
       "placeholder": "John",
       "name": "userName",
-      "assistiveText": "Enter your name, please",
+      "assistiveText": "Enter your name please.",
       "options": {
         "required": "This information is required.",
         "pattern": {
@@ -28,7 +28,7 @@
       "label": "Surname",
       "placeholder": "Johnson",
       "name": "userSurname",
-      "assistiveText": "Enter your surname, please",
+      "assistiveText": "Enter your surname please.",
       "options": {
         "required": "This information is required.",
         "pattern": {

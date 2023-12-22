@@ -26,3 +26,8 @@ export type InputT = {
   assistiveText: string;
   options: Record<string, RegisterOptions>;
 };
+
+export type InputErrorT = {
+  message: string;
+  [key: string]: any;
+};

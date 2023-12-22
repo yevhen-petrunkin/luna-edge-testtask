@@ -5,6 +5,7 @@ export { default as IconBtn } from "./lowerLevel/IconBtn/IconBtn";
 export { default as Button } from "./lowerLevel/Button/Button";
 export { default as OptionsBox } from "./lowerLevel/OptionsBox/OptionsBox";
 export { default as Label } from "./lowerLevel/Label/Label";
+export { default as AssistiveString } from "./lowerLevel/AssistiveString/AssistiveString";
 
 // MID LEVEL
 
