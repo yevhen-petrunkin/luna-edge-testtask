@@ -31,3 +31,10 @@ export type InputErrorT = {
   message: string;
   [key: string]: any;
 };
+
+export type SelectDataT = {
+  id: string;
+  label: string;
+  message: string;
+  error: InputErrorT;
+};

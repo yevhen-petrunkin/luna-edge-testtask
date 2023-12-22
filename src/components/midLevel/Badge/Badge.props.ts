@@ -1,6 +1,6 @@
 interface IBadgeProps {
   text: string;
-  clickHandler: () => void;
+  clickHandler: (name: string) => void;
   className?: string | undefined;
 }
 

@@ -14,6 +14,8 @@ type Story = StoryObj<typeof meta>;
 export const DefaultBadge: Story = {
   args: {
     text: "badge",
-    clickHandler: () => {},
+    clickHandler: (name) => {
+      alert(`Delete ${name}`);
+    },
   },
 };

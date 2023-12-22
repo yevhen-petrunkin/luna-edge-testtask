@@ -16,6 +16,7 @@ import {
   ButtonBase,
   OptionsBox,
   Input,
+  Select,
 } from "./components";
 
 import { OptionsT, InputT } from "./types";
@@ -40,7 +41,7 @@ function App() {
   const onSubmit: SubmitHandler<FieldValues> = () => {};
 
   return (
-    <section className="container">
+    <section className="container pb-[50vh]">
       <Title text={titles.main} variant="h1" className="text-center" />
       <Title text={titles.form} />
       <Title text={titles.modal} />
@@ -96,6 +97,21 @@ function App() {
         </ul>
         <Button text={data.button.text} type="submit" size="lg" decorated />
       </form>
+
+      {pokemons && pokemons.length > 0 ? (
+        <Select
+          selectData={{
+            id: "select",
+            label: "Team Members",
+            message: "Select your team members please.",
+            error: { message: "There no such players available." },
+          }}
+          options={pokemons}
+          changeHandler={() => {}}
+        />
+      ) : (
+        ""
+      )}
     </section>
   );
 }
