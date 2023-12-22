@@ -1,10 +1,8 @@
 import cn from "classnames";
 
-import {
-  InformationCircleIcon,
-  EyeIcon,
-  UserIcon,
-} from "@heroicons/react/16/solid";
+import { EyeIcon, UserIcon } from "@heroicons/react/16/solid";
+
+import { Label } from "../..";
 
 import IInputProps from "./Input.props";
 
@@ -24,14 +22,16 @@ export const Input: React.FC<IInputProps> = ({
 
   return (
     <div className={cn("flex flex-col gap-2", className)}>
-      <label className="flex items-center justify-between" htmlFor={name}>
+      <Label id={name} text={label} required={options.required} />
+
+      {/* <label className="flex items-center justify-between" htmlFor={name}>
         <span className="flex items-center gap-1 font-medium cursor-pointer">
           {label} <InformationCircleIcon className="w-4 h-4" />
         </span>
         <span className="text-primary-darker">
           {options.required ? "Required" : "Optional"}
         </span>
-      </label>
+      </label> */}
 
       <span className="relative">
         <input

@@ -47,7 +47,7 @@ import Input from "./Input";
 // };
 
 const meta = {
-  title: "components/lowerLevel/Input",
+  title: "components/midLevel/Input",
   component: Input,
 
   tags: ["autodocs"],

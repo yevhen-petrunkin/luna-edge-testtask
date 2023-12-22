@@ -1,6 +1,6 @@
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 import { fetchAllPokemons } from "./utils/api";
 import { sortOptionsAlphabetically } from "./utils/helpers";
