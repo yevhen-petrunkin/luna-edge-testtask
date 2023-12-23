@@ -1,0 +1,5 @@
+import{F as e}from"./Form-dfa67119.js";import"./index-ce7f4558.js";import"./index-76fb7be0.js";import"./_commonjsHelpers-de833af9.js";import"./Title-6342d99a.js";import"./IconBtn-807adfae.js";import"./ChevronDownIcon-61d2efb8.js";import"./Button-329999a0.js";import"./OptionsBox-f34c867b.js";import"./Label-fce2fe0a.js";import"./AssistiveString-2240a49b.js";import"./InfoBlock-952df56b.js";import"./index-d3ea75b5.js";const a=[{name:"bulbasaur",url:"https://pokeapi.co/api/v2/pokemon/1/"},{name:"ivysaur",url:"https://pokeapi.co/api/v2/pokemon/2/"},{name:"charmander",url:"https://pokeapi.co/api/v2/pokemon/4/"},{name:"charmeleon",url:"https://pokeapi.co/api/v2/pokemon/5/"},{name:"venusaur",url:"https://pokeapi.co/api/v2/pokemon/3/"}],f={title:"components/higherLevel/Form",component:e,tags:["autodocs"]},o={args:{options:a}};var p,r,t;o.parameters={...o.parameters,docs:{...(p=o.parameters)==null?void 0:p.docs,source:{originalSource:`{
+  args: {
+    options
+  }
+}`,...(t=(r=o.parameters)==null?void 0:r.docs)==null?void 0:t.source}}};const b=["DefaultForm"];export{o as DefaultForm,b as __namedExportsOrder,f as default};
